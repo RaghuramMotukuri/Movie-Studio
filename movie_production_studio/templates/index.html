@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Movie Production Studio - Modern AI Filmmaking</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-film"></i>
+                <span class="logo-text">Movie Studio</span>
+                <span class="beta-badge">BETA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <div class="nav-dropdown">
+                    <a href="#tools" class="nav-link dropdown-trigger">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools</span>
+                        <i class="fas fa-chevron-down dropdown-icon"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a href="#tool-script" class="dropdown-item">
+                            <i class="fas fa-scroll"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">AI Script Writer</span>
+                                <span class="dropdown-desc">Generate complete screenplays</span>
+                            </div>
+                        </a>
+                        <a href="#tool-video" class="dropdown-item">
+                            <i class="fas fa-video"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">Text to Video</span>
+                                <span class="dropdown-desc">Create AI-generated videos</span>
+                            </div>
+                        </a>
+                        <a href="#tool-image" class="dropdown-item">
+                            <i class="fas fa-image"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">Image Generator</span>
+                                <span class="dropdown-desc">AI-powered visuals</span>
+                            </div>
+                        </a>
+                        <a href="#tool-music" class="dropdown-item">
+                            <i class="fas fa-music"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">AI Music</span>
+                                <span class="dropdown-desc">Generate soundtracks</span>
+                            </div>
+                        </a>
+                        <a href="#tool-voice" class="dropdown-item">
+                            <i class="fas fa-microphone"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">AI Voice</span>
+                                <span class="dropdown-desc">Text-to-speech</span>
+                            </div>
+                        </a>
+                        <a href="#tool-storyboard" class="dropdown-item">
+                            <i class="fas fa-layer-group"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">Storyboard</span>
+                                <span class="dropdown-desc">Visual scene planning</span>
+                            </div>
+                        </a>
+                        <a href="#tool-shotlist" class="dropdown-item">
+                            <i class="fas fa-list-check"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">Shot List</span>
+                                <span class="dropdown-desc">Organize production shots</span>
+                            </div>
+                        </a>
+                        <a href="#tool-enhance" class="dropdown-item">
+                            <i class="fas fa-wand-sparkles"></i>
+                            <div class="dropdown-item-content">
+                                <span class="dropdown-title">Video Enhancer</span>
+                                <span class="dropdown-desc">Upscale & improve quality</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="#gallery" class="nav-link">
+                    <i class="fas fa-images"></i>
+                    <span>Examples</span>
+                </a>
+                <a href="#docs" class="nav-link">
+                    <i class="fas fa-book"></i>
+                    <span>Docs</span>
+                </a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn-primary">
+                    <i class="fas fa-rocket"></i>
+                    Get Started
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-sparkles"></i>
+                AI-Powered Filmmaking
+            </div>
+            <h1 class="hero-title">
+                Create <span class="gradient-text">Hollywood-Quality</span><br>
+                Films with AI
+            </h1>
+            <p class="hero-subtitle">
+                From script to screen in minutes. Generate videos, images, music, and complete film productions using cutting-edge AI technology.
+            </p>
+            <div class="hero-cta">
+                <button class="btn-hero" onclick="scrollToTools()">
+                    <i class="fas fa-play"></i>
+                    Start Creating
+                </button>
+                <button class="btn-secondary">
+                    <i class="fas fa-video"></i>
+                    Watch Demo
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Free AI APIs</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Creation Tools</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Free to Use</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bento Grid - Main Tools -->
+    <section class="bento-section" id="tools">
+        <div class="section-header">
+            <h2 class="section-title">
+                <i class="fas fa-magic"></i>
+                Production Tools
+            </h2>
+            <p class="section-subtitle">Everything you need to create stunning films</p>
+        </div>
+
+        <!-- Script Writer Examples -->
+        <div class="tool-examples">
+            <div class="tool-intro">
+                <h4><i class="fas fa-scroll"></i> AI Script Writer</h4>
+                <p>Transform your movie ideas into professional screenplays complete with characters, dialogue, and scene descriptions. Our AI analyzes your concept and creates a comprehensive production package including complexity scores and video animation prompts.</p>
+            </div>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="{{ url_for('static', filename='examples/images/demo-example-1.png') }}" alt="Cyberpunk Detective">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Cyberpunk Detective Story</div>
+                        <div class="example-prompt">"A noir detective in futuristic Tokyo"</div>
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="{{ url_for('static', filename='examples/images/demo-example-2.png') }}" alt="Fantasy Adventure">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Fantasy Adventure</div>
+                        <div class="example-prompt">"Epic quest in a magical realm"</div>
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="{{ url_for('static', filename='examples/images/demo-example-3.png') }}" alt="Gemini Generated">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">AI Generated Scene</div>
+                        <div class="example-prompt">"Gemini AI example generation"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Script Generator - Large Card -->
+            <div class="bento-card large-card" data-tool="script" id="tool-script">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <h3 class="card-title">AI Script Writer</h3>
+                <p class="card-description">Generate complete screenplays with characters, dialogue, and scene descriptions</p>
+                <div class="card-content">
+                    <div class="input-group">
+                        <input type="text" id="movieIdea" placeholder="Enter your movie idea..." class="modern-input">
+                        <button class="btn-generate" onclick="generateScript()">
+                            <i class="fas fa-wand-magic-sparkles"></i>
+                            Generate
+                        </button>
+                    </div>
+                    <div id="scriptResult" class="result-container"></div>
+                </div>
+                <div class="card-footer">
+                    <span class="api-badge">
+                        <i class="fas fa-brain"></i>
+                        Gemini AI
+                    </span>
+                    <span class="status-badge active">
+                        <i class="fas fa-circle"></i>
+                        Active
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Video Generator Examples -->
+        <div class="tool-examples">
+            <div class="tool-intro">
+                <h4><i class="fas fa-video"></i> Text to Video Generator</h4>
+                <p>Create stunning AI-generated videos from simple text descriptions. Now featuring <strong>Wan2.1-VACE (1.3B)</strong> - the latest high-quality video generation model! Watch your ideas come to life with smooth motion, cinematic quality, and professional results.</p>
+            </div>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <div class="example-media">
+                        <video loop muted autoplay playsinline onclick="this.paused ? this.play() : this.pause()">
+                            <source src="{{ url_for('static', filename='examples/videos/video-example-1.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Flying Through City</div>
+                        <div class="example-prompt">"Futuristic city with flying cars, neon lights"</div>
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-media">
+                        <video loop muted autoplay playsinline onclick="this.paused ? this.play() : this.pause()">
+                            <source src="{{ url_for('static', filename='examples/videos/video-example-2.mp4') }}" type="video/mp4">
+                        </video>
+                        <div class="video-overlay">
+                            <div class="play-icon"><i class="fas fa-play"></i></div>
+                        </div>
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Ocean Sunset</div>
+                        <div class="example-prompt">"Waves crashing at sunset, cinematic"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Text to Video - Medium Card -->
+            <div class="bento-card medium-card" data-tool="text-video" id="tool-video">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="card-title">Text to Video</h3>
+                <p class="card-description">Transform text prompts into AI-generated videos</p>
+                <div class="card-content">
+                    <textarea id="videoPrompt" placeholder="Describe your video scene..." class="modern-textarea"></textarea>
+                    <div class="video-options">
+                        <select id="videoModel" class="modern-select">
+                            <option value="skyreels">SkyReels V2 (High Quality) 🆕⭐</option>
+                            <option value="wan-vace">Wan2.1 VACE (Latest 1.3B)</option>
+                            <option value="stable-video">Stable Video Diffusion (Cinematic)</option>
+                            <option value="animatediff">AnimateDiff (Smooth Motion)</option>
+                        </select>
+                        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">
+                            🔑 Requires FAL.AI API key - <a href="#" onclick="alert('Get free key at https://fal.ai\\nAdd to .env: FAL_KEY=your_key\\nRestart server'); return false;" style="color: var(--accent-blue);">Get Free Key</a>
+                        </p>
+                    </div>
+                    <button class="btn-card" onclick="generateVideo()">
+                        <i class="fas fa-film"></i>
+                        Create Video
+                    </button>
+                    <div id="videoResult" class="result-container"></div>
+                </div>
+                <div class="card-footer">
+                    <span class="api-badge">
+                        <i class="fas fa-rocket"></i>
+                        FAL.AI
+                    </span>
+                    <span class="status-badge" style="background: rgba(234, 179, 8, 0.1); border-color: rgba(234, 179, 8, 0.2); color: #eab308;">
+                        <i class="fas fa-key"></i>
+                        Needs API Key
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Image Generator Examples -->
+        <div class="tool-examples">
+            <div class="tool-intro">
+                <h4><i class="fas fa-image"></i> AI Image Generator</h4>
+                <p>Generate professional-quality images from text descriptions in seconds. Now featuring <strong>FLUX.1-Kontext</strong> - the latest context-aware model for even better results! Perfect for concept art, storyboards, character designs, and scene visualizations.</p>
+            </div>
+            <div class="examples-grid">
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="https://image.pollinations.ai/prompt/cyberpunk%20detective%20in%20neon%20lit%20alley%20rain%20cinematic%20film%20noir?width=600&height=400&model=flux&nologo=true" alt="Cyberpunk Detective">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Cyberpunk Detective</div>
+                        <div class="example-prompt">"Cyberpunk detective in neon-lit alley, rain, cinematic"</div>
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="https://image.pollinations.ai/prompt/fantasy%20castle%20on%20floating%20island%20clouds%20magical%20atmosphere?width=600&height=400&model=flux&nologo=true" alt="Fantasy Castle">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Fantasy Castle</div>
+                        <div class="example-prompt">"Fantasy castle on floating island, magical atmosphere"</div>
+                    </div>
+                </div>
+                <div class="example-item">
+                    <div class="example-media">
+                        <img src="https://image.pollinations.ai/prompt/futuristic%20space%20station%20orbiting%20earth%208k%20photorealistic?width=600&height=400&model=flux&nologo=true" alt="Space Station">
+                    </div>
+                    <div class="example-info">
+                        <div class="example-title">Space Station</div>
+                        <div class="example-prompt">"Futuristic space station orbiting Earth, 8k"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bento-grid">
+            <!-- Image Generator - Medium Card -->
+            <div class="bento-card medium-card" data-tool="image" id="tool-image">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-image"></i>
+                </div>
+                <h3 class="card-title">Image Generator</h3>
+                <p class="card-description">Create stunning visuals for your production</p>
+                <div class="card-content">
+                    <textarea id="imagePrompt" placeholder="Describe your image..." class="modern-textarea"></textarea>
+                    <div class="image-options">
+                        <select id="imageModel" class="modern-select">
+                            <option value="flux-schnell" selected>FLUX (Fast & Quality) ⭐ DEFAULT</option>
+                            <option value="flux-realism">FLUX Realism (Detailed)</option>
+                            <option value="flux-anime">FLUX Anime (Artistic)</option>
+                        </select>
+                        <p style="color: var(--text-muted); font-size: 0.75rem; margin-top: 0.5rem;">
+                            ✨ Multiple AI providers - 100% Free!
+                        </p>
+                    </div>
+                    <button class="btn-card" onclick="generateImage()">
+                        <i class="fas fa-palette"></i>
+                        Generate Image
+                    </button>
+                    <div id="imageResult" class="result-container"></div>
+                </div>
+                <div class="card-footer">
+                    <span class="api-badge">
+                        <i class="fas fa-leaf"></i>
+                        Pollinations.AI
+                    </span>
+                    <span class="status-badge active">
+                        <i class="fas fa-circle"></i>
+                        Working
+                    </span>
+                </div>
+            </div>
+
+            <!-- Music Generator - Small Card -->
+            <div class="bento-card small-card" data-tool="music" id="tool-music">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3 class="card-title">AI Music</h3>
+                <p class="card-description">Generate background scores and soundtracks</p>
+                <div class="card-content">
+                    <textarea id="musicPrompt" placeholder="Music style..." class="modern-textarea" style="min-height: 80px;"></textarea>
+                    <div class="music-options">
+                        <select id="musicModel" class="modern-select">
+                            <option value="musicgen">MusicGen Small (Fast)</option>
+                            <option value="musicgen-large">MusicGen Large (Best)</option>
+                            <option value="audioldm">AudioLDM2 (Sound FX)</option>
+                        </select>
+                    </div>
+                    <button class="btn-card" onclick="generateMusic()">
+                        <i class="fas fa-headphones"></i>
+                        Create
+                    </button>
+                    <div id="musicResult" class="result-container"></div>
+                </div>
+                <div class="card-footer">
+                    <span class="api-badge">
+                        <i class="fas fa-wave-square"></i>
+                        Meta AI
+                    </span>
+                </div>
+            </div>
+
+            <!-- Voice Generator - Small Card -->
+            <div class="bento-card small-card" data-tool="voice" id="tool-voice">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3 class="card-title">AI Voice</h3>
+                <p class="card-description">Text to speech with natural voices</p>
+                <div class="card-content">
+                    <input type="text" id="voiceText" placeholder="Enter text..." class="modern-input">
+                    <button class="btn-card" onclick="generateVoice()">
+                        <i class="fas fa-volume-up"></i>
+                        Speak
+                    </button>
+                    <div id="voiceResult" class="result-container"></div>
+                </div>
+                <div class="card-footer">
+                    <span class="api-badge">
+                        <i class="fas fa-robot"></i>
+                        Bark AI
+                    </span>
+                </div>
+            </div>
+
+            <!-- Storyboard - Wide Card -->
+            <div class="bento-card wide-card" data-tool="storyboard" id="tool-storyboard">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3 class="card-title">Storyboard Creator</h3>
+                <p class="card-description">Visual planning for your scenes with AI-generated frames</p>
+                <div class="card-content">
+                    <div class="storyboard-grid" id="storyboardGrid">
+                        <div class="storyboard-item add-frame" onclick="addStoryboardFrame()">
+                            <i class="fas fa-plus"></i>
+                            <span>Add Frame</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-outline">
+                        <i class="fas fa-download"></i>
+                        Export Storyboard
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shot List - Tall Card -->
+            <div class="bento-card tall-card" data-tool="shotlist" id="tool-shotlist">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-list-check"></i>
+                </div>
+                <h3 class="card-title">Shot List</h3>
+                <p class="card-description">Organize your production shots</p>
+                <div class="card-content">
+                    <div class="shot-list" id="shotList">
+                        <div class="shot-item">
+                            <input type="text" placeholder="Shot description..." class="modern-input">
+                            <div class="shot-details">
+                                <select class="modern-select small">
+                                    <option>Wide</option>
+                                    <option>Medium</option>
+                                    <option>Close-up</option>
+                                </select>
+                                <input type="text" placeholder="Duration" class="modern-input small">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-add" onclick="addShot()">
+                        <i class="fas fa-plus"></i>
+                        Add Shot
+                    </button>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-outline">
+                        <i class="fas fa-file-pdf"></i>
+                        Export PDF
+                    </button>
+                </div>
+            </div>
+
+            <!-- Video Enhancer - Medium Card -->
+            <div class="bento-card medium-card" data-tool="enhance" id="tool-enhance">
+                <div class="card-glow"></div>
+                <div class="card-icon">
+                    <i class="fas fa-wand-sparkles"></i>
+                </div>
+                <h3 class="card-title">Video Enhancer</h3>
+                <p class="card-description">Upscale and improve video quality</p>
+                <div class="card-content">
+                    <div class="upload-area" onclick="document.getElementById('videoUpload').click()">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Click to upload video</p>
+                        <input type="file" id="videoUpload" hidden accept="video/*">
+                    </div>
+                    <button class="btn-card" onclick="enhanceVideo()">
+                        <i class="fas fa-magic"></i>
+                        Enhance
+                    </button>
+                    <div id="enhanceResult" class="result-container"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="section-title">Why Choose Our Studio?</h2>
+            <p class="section-subtitle">Powerful features, zero cost</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <h3>100% Free</h3>
+                <p>All tools powered by free APIs. No hidden costs or subscriptions.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Lightning Fast</h3>
+                <p>Generate content in seconds with optimized AI models.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>No Sign-up</h3>
+                <p>Start creating immediately. No account or registration required.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-infinity"></i>
+                </div>
+                <h3>Unlimited</h3>
+                <p>Create as many projects as you want, whenever you want.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p class="loading-text">Creating magic...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
